@@ -42,3 +42,7 @@
   (lat? '((a) b c)) => false
   (lat? '(a (b c))) => false)
 
+(facts "about member?"
+  (member? 'a '(a b c)) => true
+  (member? 'a '(b c)) => false)
+
