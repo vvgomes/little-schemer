@@ -36,3 +36,9 @@
   (eq? 'a 'b) => false
   (eq? (car '(a b)) 'a) => true)
 
+(facts "about lat?"
+  (lat? '()) => true
+  (lat? '(a b c)) => true
+  (lat? '((a) b c)) => false
+  (lat? '(a (b c))) => false)
+
