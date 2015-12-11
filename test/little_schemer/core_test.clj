@@ -68,3 +68,11 @@
   (firsts '((a b) (b c) (c d))) => '(a b c)
   (firsts '((a b) ((b) c) (c d))) => '(a (b) c))
 
+(facts "about insertR"
+  (insertR 'b 'a '()) => '()
+  (insertR 'b 'a '(a)) => '(a b)
+  (insertR 'b 'a '(c)) => '(c)
+  (insertR 'b 'a '(a c)) => '(a b c)
+  (insertR 'b 'a '(d a c)) => '(d a b c)
+  (insertR 'b 'a '(d a c a)) => '(d a b c a))
+
