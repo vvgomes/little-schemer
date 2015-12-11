@@ -80,7 +80,5 @@
 
 (def add1 (partial + 1))
 
-(def sub1
-  (fn [n]
-    (- n 1)))
+(def sub1 (partial (comp (partial apply -) reverse list) 1))
 
