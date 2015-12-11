@@ -21,3 +21,11 @@
         (or 
           (eq? (car l) e)
           (member? e (cdr l))))))
+
+(def rember?
+  (fn [e l]
+    (cond
+      (null? l) l
+      (eq? (car l) e) (cdr l)
+      :else (cons (car l) (rember? e (cdr l))))))
+

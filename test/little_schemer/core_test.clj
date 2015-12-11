@@ -46,6 +46,15 @@
 (facts "about member?"
   (member? 'a '()) => false
   (member? 'a '(a)) => true
+  (member? 'a '(b)) => false
   (member? 'a '(a b c)) => true
   (member? 'a '(b c d)) => false)
+
+(facts "about rember?"
+  (rember? 'a '()) => '()
+  (rember? 'a '(a)) => '()
+  (rember? 'a '(b)) => '(b)
+  (rember? 'a '(a b c)) => '(b c)
+  (rember? 'a '(b a c)) => '(b c)
+  (rember? 'a '(b a c a)) => '(b c a))
 
