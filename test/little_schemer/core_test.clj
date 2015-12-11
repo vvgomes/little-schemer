@@ -92,3 +92,11 @@
   (subst 'n 'o '(x o y)) => '(x n y)
   (subst 'n 'o '(x o y o)) => '(x n y o))
 
+(facts "about multiinsertR"
+  (multiinsertR 'n 'o '()) => '()
+  (multiinsertR 'n 'o '(x)) => '(x)
+  (multiinsertR 'n 'o '(o)) => '(o n)
+  (multiinsertR 'n 'o '(o x)) => '(o n x)
+  (multiinsertR 'n 'o '(x o y)) => '(x o n y)
+  (multiinsertR 'n 'o '(x o y o)) => '(x o n y o n))
+

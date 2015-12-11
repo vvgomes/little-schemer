@@ -57,3 +57,10 @@
       (eq? (car l) o) (cons n (cdr l))
       :else (cons (car l) (subst n o (cdr l))))))
 
+(def multiinsertR
+  (fn [n o l]
+    (cond
+      (null? l) l
+      (eq? (car l) o) (cons o (cons n (multiinsertR n o (cdr l))))
+      :else (cons (car l) (multiinsertR n o (cdr l))))))
+
