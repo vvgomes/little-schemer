@@ -38,11 +38,14 @@
 
 (facts "about lat?"
   (lat? '()) => true
+  (lat? '(a)) => true
   (lat? '(a b c)) => true
   (lat? '((a) b c)) => false
   (lat? '(a (b c))) => false)
 
 (facts "about member?"
+  (member? 'a '()) => false
+  (member? 'a '(a)) => true
   (member? 'a '(a b c)) => true
-  (member? 'a '(b c)) => false)
+  (member? 'a '(b c d)) => false)
 

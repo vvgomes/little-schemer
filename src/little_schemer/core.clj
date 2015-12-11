@@ -14,10 +14,10 @@
       :else false)))
 
 (def member?
-  (fn [a l]
+  (fn [e l]
     (cond
       (null? l) false
       :else
         (or 
-          (eq? (car l) a) 
-          (member? a (cdr l))))))
+          (eq? (car l) e)
+          (member? e (cdr l))))))
