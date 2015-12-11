@@ -119,3 +119,8 @@
 (facts "about add1"
   (add1 0) => 1
   (add1 67) => 68)
+
+(facts "about sub1"
+  (sub1 1) => 0
+  (sub1 67) => 66)
+
