@@ -1,6 +1,6 @@
-# little-schemer
+# Little Schemer
 
-The project uses [Midje](https://github.com/marick/Midje/).
+The project uses [Midje](https://github.com/marick/Midje/). [![Build Status](https://secure.travis-ci.org/vvgomes/little-schemer.png)](http://travis-ci.org/vvgomes/little-schemer)
 
 ## How to run the tests
 
