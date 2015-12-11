@@ -43,3 +43,10 @@
       (eq? (car l) o) (cons o (cons n (cdr l)))
       :else (cons (car l) (insertR n o (cdr l))))))
 
+(def insertL
+  (fn [n o l]
+    (cond
+      (null? l) l
+      (eq? (car l) o) (cons n l)
+      :else (cons (car l) (insertL n o (cdr l))))))
+

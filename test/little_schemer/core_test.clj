@@ -69,10 +69,18 @@
   (firsts '((a b) ((b) c) (c d))) => '(a (b) c))
 
 (facts "about insertR"
-  (insertR 'b 'a '()) => '()
-  (insertR 'b 'a '(a)) => '(a b)
-  (insertR 'b 'a '(c)) => '(c)
-  (insertR 'b 'a '(a c)) => '(a b c)
-  (insertR 'b 'a '(d a c)) => '(d a b c)
-  (insertR 'b 'a '(d a c a)) => '(d a b c a))
+  (insertR 'n 'o '()) => '()
+  (insertR 'n 'o '(x)) => '(x)
+  (insertR 'n 'o '(o)) => '(o n)
+  (insertR 'n 'o '(o x)) => '(o n x)
+  (insertR 'n 'o '(x o y)) => '(x o n y)
+  (insertR 'n 'o '(x o y o)) => '(x o n y o))
+
+(facts "about insertL"
+  (insertL 'n 'o '()) => '()
+  (insertL 'n 'o '(x)) => '(x)
+  (insertL 'n 'o '(o)) => '(n o)
+  (insertL 'n 'o '(o x)) => '(n o x)
+  (insertL 'n 'o '(x o y)) => '(x n o y)
+  (insertL 'n 'o '(x o y o)) => '(x n o y o))
 
