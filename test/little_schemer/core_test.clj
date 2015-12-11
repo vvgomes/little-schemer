@@ -108,3 +108,11 @@
   (multiinsertL 'n 'o '(x o y)) => '(x n o y)
   (multiinsertL 'n 'o '(x o y o)) => '(x n o y n o))
 
+(facts "about multisubst"
+  (multisubst 'n 'o '()) => '()
+  (multisubst 'n 'o '(x)) => '(x)
+  (multisubst 'n 'o '(o)) => '(n)
+  (multisubst 'n 'o '(o x)) => '(n x)
+  (multisubst 'n 'o '(x o y)) => '(x n y)
+  (multisubst 'n 'o '(x o y o)) => '(x n y n))
+
