@@ -84,3 +84,11 @@
   (insertL 'n 'o '(x o y)) => '(x n o y)
   (insertL 'n 'o '(x o y o)) => '(x n o y o))
 
+(facts "about subst"
+  (subst 'n 'o '()) => '()
+  (subst 'n 'o '(x)) => '(x)
+  (subst 'n 'o '(o)) => '(n)
+  (subst 'n 'o '(o x)) => '(n x)
+  (subst 'n 'o '(x o y)) => '(x n y)
+  (subst 'n 'o '(x o y o)) => '(x n y o))
+

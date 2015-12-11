@@ -50,3 +50,10 @@
       (eq? (car l) o) (cons n l)
       :else (cons (car l) (insertL n o (cdr l))))))
 
+(def subst
+  (fn [n o l]
+    (cond
+      (null? l) l
+      (eq? (car l) o) (cons n (cdr l))
+      :else (cons (car l) (subst n o (cdr l))))))
+
