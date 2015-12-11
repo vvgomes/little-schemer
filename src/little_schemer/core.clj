@@ -80,5 +80,8 @@
 
 (def add1 (partial + 1))
 
-(def sub1 (partial (comp (partial apply -) reverse list) 1))
+(defn flip [f]
+  (comp (partial apply f) reverse list))
+
+(def sub1 (partial (flip -) 1))
 
