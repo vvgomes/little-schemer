@@ -137,3 +137,9 @@
   (sub 18 0) => 18
   (sub 14 3) => 11)
 
+(facts "about addtup"
+  (addtup '()) => 0
+  (addtup '(1)) => 1
+  (addtup '(1 2)) => 3
+  (addtup '(3 5 2 8)) => 18)
+

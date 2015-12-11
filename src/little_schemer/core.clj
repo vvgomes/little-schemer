@@ -96,3 +96,10 @@
     (cond
       (zero? m) n
       :else (sub (sub1 n) (sub1 m)))))
+
+(def addtup
+  (fn [tup]
+    (cond
+      (null? tup) 0
+      :else (add (car tup) (addtup (cdr tup))))))
+
