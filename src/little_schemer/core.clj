@@ -41,5 +41,5 @@
     (cond
       (null? l) l
       (eq? (car l) o) (cons o (cons n (cdr l)))
-      :else (cons (car l) (insertR n o (cdr l)))
-    )))
+      :else (cons (car l) (insertR n o (cdr l))))))
+
