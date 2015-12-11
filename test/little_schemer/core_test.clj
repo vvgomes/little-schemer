@@ -116,3 +116,6 @@
   (multisubst 'n 'o '(x o y)) => '(x n y)
   (multisubst 'n 'o '(x o y o)) => '(x n y n))
 
+(facts "about add1"
+  (add1 0) => 1
+  (add1 67) => 68)

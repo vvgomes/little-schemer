@@ -78,3 +78,7 @@
       (eq? (car l) o) (cons n (multisubst n o (cdr l)))
       :else (cons (car l) (multisubst n o (cdr l))))))
 
+(def add1
+  (fn [n]
+    (+ 1 n)))
+
