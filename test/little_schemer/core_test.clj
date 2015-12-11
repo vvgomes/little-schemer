@@ -143,3 +143,14 @@
   (addtup '(1 2)) => 3
   (addtup '(3 5 2 8)) => 18)
 
+(facts "about mult"
+  (mult 0 0) => 0
+  (mult 0 1) => 0
+  (mult 0 2) => 0
+  (mult 1 0) => 0
+  (mult 1 1) => 1
+  (mult 1 2) => 2
+  (mult 2 0) => 0
+  (mult 2 1) => 2
+  (mult 2 2) => 4)
+

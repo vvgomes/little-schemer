@@ -103,3 +103,9 @@
       (null? tup) 0
       :else (add (car tup) (addtup (cdr tup))))))
 
+(def mult
+  (fn [n m]
+    (cond
+      (zero? n) 0
+      :else (add (mult (sub1 n) m) m))))
+
