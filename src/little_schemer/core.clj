@@ -85,3 +85,14 @@
 
 (def sub1 (partial (flip -) 1))
 
+(def add
+  (fn [n m]
+    (cond
+      (zero? n) m
+      :else (add (sub1 n) (add1 m)))))
+
+(def sub
+  (fn [n m]
+    (cond
+      (zero? m) n
+      :else (sub (sub1 n) (sub1 m)))))

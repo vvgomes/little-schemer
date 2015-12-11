@@ -124,3 +124,16 @@
   (sub1 1) => 0
   (sub1 67) => 66)
 
+(facts "about zero?"
+  (zero? 0) => true
+  (zero? 1492) => false)
+
+(facts "about add"
+  (add 0 12) => 12
+  (add 46 0) => 46
+  (add 46 12) => 58)
+
+(facts "about sub"
+  (sub 18 0) => 18
+  (sub 14 3) => 11)
+
