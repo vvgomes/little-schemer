@@ -100,3 +100,11 @@
   (multiinsertR 'n 'o '(x o y)) => '(x o n y)
   (multiinsertR 'n 'o '(x o y o)) => '(x o n y o n))
 
+(facts "about multiinsertL"
+  (multiinsertL 'n 'o '()) => '()
+  (multiinsertL 'n 'o '(x)) => '(x)
+  (multiinsertL 'n 'o '(o)) => '(n o)
+  (multiinsertL 'n 'o '(o x)) => '(n o x)
+  (multiinsertL 'n 'o '(x o y)) => '(x n o y)
+  (multiinsertL 'n 'o '(x o y o)) => '(x n o y n o))
+
