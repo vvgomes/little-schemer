@@ -29,3 +29,10 @@
       (eq? (car l) e) (cdr l)
       :else (cons (car l) (rember? e (cdr l))))))
 
+(def firsts
+  (fn [l]
+    (cond
+      (null? l) l
+      (atom? (car l)) (firsts (cdr l))
+      :else (cons (car (car l)) (firsts (cdr l))))))
+

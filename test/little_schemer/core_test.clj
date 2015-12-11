@@ -58,3 +58,13 @@
   (rember? 'a '(b a c)) => '(b c)
   (rember? 'a '(b a c a)) => '(b c a))
 
+(facts "about firsts"
+  (firsts '()) => '()
+  (firsts '(a)) => '()
+  (firsts '((a))) => '(a)
+  (firsts '(((a)))) => '((a))
+  (firsts '((a) (b) (c))) => '(a b c)
+  (firsts '((a) b (c))) => '(a c)
+  (firsts '((a b) (b c) (c d))) => '(a b c)
+  (firsts '((a b) ((b) c) (c d))) => '(a (b) c))
+
