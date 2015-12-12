@@ -154,9 +154,15 @@
   (mult 2 1) => 2
   (mult 2 2) => 4)
 
-(facts "about tup+"
+(facts "about tup+ for same length tups"
   (tup+ '() '()) => '()
   (tup+ '(1) '(2)) => '(3)
   (tup+ '(1 2) '(2 3)) => '(3 5)
   (tup+ '(3 6 9 11 4) '(8 5 2 0 7)) => '(11 11 11 11 11))
+
+(facts "about tup+ for different length tups"
+  (tup+ '(1) '()) => '(1)
+  (tup+ '() '(1)) => '(1)
+  (tup+ '(3 7) '(4 6 8 1)) => '(7 13 8 1)
+  (tup+ '(3 7 8 1) '(4 6)) => '(7 13 8 1))
 
