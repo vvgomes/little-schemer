@@ -197,3 +197,8 @@
   (length '(6)) => 1
   (length '(6 5 4 3 2 1)) => 6)
 
+(facts "about pick"
+  (pick 1 '(6 5 4)) => 6
+  (pick 2 '(6 5 4)) => 5
+  (pick 3 '(6 5 4)) => 4)
+

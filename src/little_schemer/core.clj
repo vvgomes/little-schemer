@@ -155,3 +155,9 @@
      (null? l) 0
      :else (add1 (length (cdr l))))))
 
+(def pick
+  (fn [n l]
+    (cond
+      (eq? n 1) (car l)
+      :else (pick (sub1 n) (cdr l)))))
+
