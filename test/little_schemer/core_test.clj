@@ -168,26 +168,18 @@
 
 (facts "about gt?"
   (gt? 0 0) => false
-  (gt? 0 1) => false
-  (gt? 1 0) => true
-  (gt? 1 1) => false
   (gt? 12 133) => false
-  (gt? 120 11) => true)
+  (gt? 120 11) => true
+  (gt? 12 12) => false)
 
 (facts "about lt?"
   (lt? 0 0) => false
-  (lt? 0 1) => true
-  (lt? 1 0) => false
-  (lt? 1 1) => false
   (lt? 4 6) => true
   (lt? 8 3) => false
   (lt? 6 6) => false)
 
 (facts "about eqn?"
   (eqn? 0 0) => true
-  (eqn? 0 1) => false
-  (eqn? 1 0) => false
-  (eqn? 1 1) => true
-  (eqn? 8 3) => false
-  (eqn? 3 3) => true)
+  (eqn? 3 3) => true
+  (eqn? 8 3) => false)
 
