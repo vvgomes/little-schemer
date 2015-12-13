@@ -181,3 +181,10 @@
       (number? (car l)) (cons (car l) (allnums (cdr l)))
       :else (allnums (cdr l)))))
 
+(def occur
+  (fn [a l]
+    (cond
+      (null? l) 0
+      (eq? (car l) a) (add1 (occur a (cdr l)))
+      :else (occur a (cdr l)))))
+

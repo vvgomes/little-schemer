@@ -219,3 +219,9 @@
   (allnums '(a 5 c)) => '(5)
   (allnums '(a b c)) => '())
 
+(facts "about occur"
+  (occur 'x '()) => 0
+  (occur 'x '(x)) => 1
+  (occur 'x '(x y x z)) => 2
+  (occur 'x '(a b c)) => 0)
+
