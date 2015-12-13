@@ -174,3 +174,10 @@
       (number? (car l)) (nonums (cdr l))
       :else (cons (car l) (nonums (cdr l))))))
 
+(def allnums
+  (fn [l]
+    (cond
+      (null? l) l
+      (number? (car l)) (cons (car l) (allnums (cdr l)))
+      :else (allnums (cdr l)))))
+

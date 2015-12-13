@@ -213,3 +213,9 @@
   (nonums '(a 5 c)) => '(a c)
   (nonums '(a b c)) => '(a b c))
 
+(facts "about allnums"
+  (allnums '()) => '()
+  (allnums '(6 5 4)) => '(6 5 4)
+  (allnums '(a 5 c)) => '(5)
+  (allnums '(a b c)) => '())
+
