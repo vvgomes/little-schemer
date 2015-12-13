@@ -183,3 +183,8 @@
   (eqn? 3 3) => true
   (eqn? 8 3) => false)
 
+(facts "about pow"
+  (pow 1 1) => 1
+  (pow 2 3) => 8
+  (pow 5 3) => 125)
+

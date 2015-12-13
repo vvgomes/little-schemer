@@ -137,3 +137,9 @@
       (lt? n m) false
       :else true)))
 
+(def pow
+  (fn [n m]
+    (cond
+      (zero? m) 1
+      :else (mult n (pow n (sub1 m))))))
+
