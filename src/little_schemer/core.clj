@@ -130,3 +130,10 @@
       (zero? n) true
       :else (lt (sub1 n) (sub1 m)))))
 
+(def eqn?
+  (fn [n m]
+    (cond
+      (and (zero? n) (zero? m)) true
+      (or (zero? n) (zero? m)) false
+      :else (eqn? (sub1 n) (sub1 m)))))
+

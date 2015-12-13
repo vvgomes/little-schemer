@@ -183,3 +183,11 @@
   (lt 8 3) => false
   (lt 6 6) => false)
 
+(facts "about eqn?"
+  (eqn? 0 0) => true
+  (eqn? 0 1) => false
+  (eqn? 1 0) => false
+  (eqn? 1 1) => true
+  (eqn? 8 3) => false
+  (eqn? 3 3) => true)
+
