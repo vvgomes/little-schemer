@@ -167,3 +167,10 @@
       (eq? n 1) (cdr l)
       :else (cons (car l) (rempick (sub1 n) (cdr l))))))
 
+(def nonums
+  (fn [l]
+    (cond
+      (null? l) l
+      (number? (car l)) (nonums (cdr l))
+      :else (cons (car l) (nonums (cdr l))))))
+

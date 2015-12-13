@@ -207,3 +207,9 @@
   (rempick 2 '(6 5 4)) => '(6 4)
   (rempick 3 '(6 5 4)) => '(6 5))
 
+(facts "about nonums"
+  (nonums '()) => '()
+  (nonums '(6 5 4)) => '()
+  (nonums '(a 5 c)) => '(a c)
+  (nonums '(a b c)) => '(a b c))
+
