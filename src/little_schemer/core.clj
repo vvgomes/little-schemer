@@ -149,3 +149,9 @@
       (lt? n m) 0
       :else (add1 (div (sub n m) m)))))
 
+(def length
+  (fn [l]
+   (cond
+     (null? l) 0
+     :else (add1 (length (cdr l))))))
+

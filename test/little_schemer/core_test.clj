@@ -192,3 +192,8 @@
   (div 4 15) => 0
   (div 15 4) => 3)
 
+(facts "about length"
+  (length '()) => 0
+  (length '(6)) => 1
+  (length '(6 5 4 3 2 1)) => 6)
+
