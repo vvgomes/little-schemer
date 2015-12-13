@@ -143,3 +143,9 @@
       (zero? m) 1
       :else (mult n (pow n (sub1 m))))))
 
+(def div
+  (fn [n m]
+    (cond
+      (lt? n m) 0
+      :else (add1 (div (sub n m) m)))))
+

@@ -188,3 +188,7 @@
   (pow 2 3) => 8
   (pow 5 3) => 125)
 
+(facts "about div"
+  (div 4 15) => 0
+  (div 15 4) => 3)
+
