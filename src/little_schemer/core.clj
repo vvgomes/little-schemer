@@ -116,14 +116,14 @@
       (null? t2) t1
       :else (cons (add (car t1) (car t2)) (tup+ (cdr t1) (cdr t2))))))
 
-(def gt
+(def gt?
   (fn [n m]
     (cond
       (zero? n) false
       (zero? m) true
       :else (gt (sub1 n) (sub1 m)))))
 
-(def lt
+(def lt?
   (fn [n m]
     (cond
       (zero? m) false
