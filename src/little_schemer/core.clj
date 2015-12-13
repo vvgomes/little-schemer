@@ -161,3 +161,9 @@
       (eq? n 1) (car l)
       :else (pick (sub1 n) (cdr l)))))
 
+(def rempick
+  (fn [n l]
+    (cond
+      (eq? n 1) (cdr l)
+      :else (cons (car l) (rempick (sub1 n) (cdr l))))))
+

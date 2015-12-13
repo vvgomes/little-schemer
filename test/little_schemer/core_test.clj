@@ -202,3 +202,8 @@
   (pick 2 '(6 5 4)) => 5
   (pick 3 '(6 5 4)) => 4)
 
+(facts "about rempick"
+  (rempick 1 '(6 5 4)) => '(5 4)
+  (rempick 2 '(6 5 4)) => '(6 4)
+  (rempick 3 '(6 5 4)) => '(6 5))
+
