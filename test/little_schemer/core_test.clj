@@ -166,3 +166,20 @@
   (tup+ '(3 7) '(4 6 8 1)) => '(7 13 8 1)
   (tup+ '(3 7 8 1) '(4 6)) => '(7 13 8 1))
 
+(facts "about gt"
+  (gt 0 0) => false
+  (gt 0 1) => false
+  (gt 1 0) => true
+  (gt 1 1) => false
+  (gt 12 133) => false
+  (gt 120 11) => true)
+
+(facts "about lt"
+  (lt 0 0) => false
+  (lt 0 1) => true
+  (lt 1 0) => false
+  (lt 1 1) => false
+  (lt 4 6) => true
+  (lt 8 3) => false
+  (lt 6 6) => false)
+
