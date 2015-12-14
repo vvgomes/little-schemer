@@ -121,14 +121,14 @@
     (cond
       (zero? n) false
       (zero? m) true
-      :else (gt (sub1 n) (sub1 m)))))
+      :else (gt? (sub1 n) (sub1 m)))))
 
 (def lt?
   (fn [n m]
     (cond
       (zero? m) false
       (zero? n) true
-      :else (lt (sub1 n) (sub1 m)))))
+      :else (lt? (sub1 n) (sub1 m)))))
 
 (def eqn?
   (fn [n m]
