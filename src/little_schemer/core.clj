@@ -22,12 +22,12 @@
           (eq? (car l) e)
           (member? e (cdr l))))))
 
-(def rember?
+(def rember
   (fn [e l]
     (cond
       (null? l) l
       (eq? (car l) e) (cdr l)
-      :else (cons (car l) (rember? e (cdr l))))))
+      :else (cons (car l) (rember e (cdr l))))))
 
 (def firsts
   (fn [l]
@@ -197,4 +197,17 @@
     (cond
       (one? n) (cdr l)
       :else (cons (car l) (rempick (sub1 n) (cdr l))))))
+
+(def rember*
+  (fn [e l]
+    (cond
+      (null? l) l
+      (atom? (car l))
+        (cond
+          (eq? (car l) e) (rember* e (cdr l))
+          :else (cons (car l) (rember* e (cdr l))))
+      :else (cons (rember* e (car l)) (rember* e (cdr l)))
+      )))
+  
+
 

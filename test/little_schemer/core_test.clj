@@ -50,13 +50,13 @@
   (member? 'a '(a b c)) => true
   (member? 'a '(b c d)) => false)
 
-(facts "about rember?"
-  (rember? 'a '()) => '()
-  (rember? 'a '(a)) => '()
-  (rember? 'a '(b)) => '(b)
-  (rember? 'a '(a b c)) => '(b c)
-  (rember? 'a '(b a c)) => '(b c)
-  (rember? 'a '(b a c a)) => '(b c a))
+(facts "about rember"
+  (rember 'a '()) => '()
+  (rember 'a '(a)) => '()
+  (rember 'a '(b)) => '(b)
+  (rember 'a '(a b c)) => '(b c)
+  (rember 'a '(b a c)) => '(b c)
+  (rember 'a '(b a c a)) => '(b c a))
 
 (facts "about firsts"
   (firsts '()) => '()
@@ -229,4 +229,11 @@
   (one? 0) => false
   (one? 1) => true
   (one? 2) => false)
+
+(facts "about rember*"
+  (rember* 'x '()) => '()
+  (rember* 'x '(x)) => '()
+  (rember* 'x '((x))) => '(())
+  (rember* 'x '(a x (b x))) => '(a (b))
+  (rember* 'x '(a x (b (c x d)))) => '(a (b (c d))))
 
