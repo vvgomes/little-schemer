@@ -225,3 +225,8 @@
   (occur 'x '(x y x z)) => 2
   (occur 'x '(a b c)) => 0)
 
+(facts "about one?"
+  (one? 0) => false
+  (one? 1) => true
+  (one? 2) => false)
+

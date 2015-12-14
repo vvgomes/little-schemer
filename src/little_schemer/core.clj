@@ -188,3 +188,9 @@
       (eq? (car l) a) (add1 (occur a (cdr l)))
       :else (occur a (cdr l)))))
 
+(def one?
+ (fn [n]
+   (cond
+     (zero? n) false
+     :else (zero? (sub1 n)))))
+
