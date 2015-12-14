@@ -192,3 +192,9 @@
   (fn [n]
     (eq? 1 n)))
 
+(def rempick
+  (fn [n l]
+    (cond
+      (one? n) (cdr l)
+      :else (cons (car l) (rempick (sub1 n) (cdr l))))))
+
