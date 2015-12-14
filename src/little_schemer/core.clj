@@ -189,8 +189,6 @@
       :else (occur a (cdr l)))))
 
 (def one?
- (fn [n]
-   (cond
-     (zero? n) false
-     :else (zero? (sub1 n)))))
+  (fn [n]
+    (eq? 1 n)))
 
