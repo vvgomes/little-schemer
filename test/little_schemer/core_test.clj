@@ -2,29 +2,29 @@
   (:use midje.sweet)
   (:use [little-schemer.core]))
 
+; 1. Toys
+
 (facts "about atom?"
-  (atom? 'a) => true
+  (atom? 'turkey) => true
+  (atom? '1492) => true
   (atom? '()) => false
-  (atom? '(a)) => false
-  (atom? '((a b) c)) => false)
+  (atom? '(x)) => false)
 
 (facts "about car"
   (car '(a b c)) => 'a
   (car '((a b c) x y z)) => '(a b c)
-  (atom? (car '(a b c)))=> true)
+  (car '(((hotdogs)) (and) (pickle) relish)) => '((hotdogs)))
 
 (facts "about cdr"
   (cdr '(a b c)) => '(b c)
   (cdr '((a b c) x y z)) => '(x y z)
-  (cdr '(a)) => '()
-  (car (cdr '((b) (x y) ((c))))) => '(x y)
-  (atom? (cdr '(a b c)))=> false)
+  (cdr '(hamburger)) => '())
 
 (facts "about cons"
-  (cons 'a '(b c)) => '(a b c)
-  (cons 'a '()) => '(a)
-  (cons 'a (car '((b) c d))) => '(a b)
-  (cons 'a (cdr '((b) c d))) => '(a c d))
+  (cons 'x '()) => '(x)
+  (cons 'peanut '(butter and jelly)) => '(peanut butter and jelly)
+  (cons '(banana and) '(peanut butter and jelly))
+    => '((banana and) peanut butter and jelly))
 
 (facts "about null?"
   (null? '()) => true
@@ -32,41 +32,48 @@
   (null? '(a b c)) => false)
 
 (facts "about eq?"
-  (eq? 'a 'a) => true
-  (eq? 'a 'b) => false
-  (eq? (car '(a b)) 'a) => true)
+  (eq? 'Harry 'Harry) => true
+  (eq? 'margarine 'butter) => false)
+
+; 2. Do it, Do It Again, an Again, and Again...
 
 (facts "about lat?"
   (lat? '()) => true
-  (lat? '(a)) => true
-  (lat? '(a b c)) => true
-  (lat? '((a) b c)) => false
-  (lat? '(a (b c))) => false)
+  (lat? '(x)) => true
+  (lat? '((x))) => false
+  (lat? '(jack sprat could eat not chicken fat)) => true
+  (lat? '(jack (sprat could) eat no chicken fat)) => false)
 
 (facts "about member?"
-  (member? 'a '()) => false
-  (member? 'a '(a)) => true
-  (member? 'a '(b)) => false
-  (member? 'a '(a b c)) => true
-  (member? 'a '(b c d)) => false)
+  (member? 'x '()) => false
+  (member? 'x '(x)) => true
+  (member? 'x '(y)) => false
+  (member? 'tea '(coffee tea or milk)) => true
+  (member? 'poached '(fried eggs and scrambled eggs)) => false)
+
+; 3. Cons the Magnificent
 
 (facts "about rember"
-  (rember 'a '()) => '()
-  (rember 'a '(a)) => '()
-  (rember 'a '(b)) => '(b)
-  (rember 'a '(a b c)) => '(b c)
-  (rember 'a '(b a c)) => '(b c)
-  (rember 'a '(b a c a)) => '(b c a))
+  (rember 'x '()) => '()
+  (rember 'x '(x)) => '()
+  (rember 'x '(y)) => '(y)
+  (rember 'mint '(lamb chops and mint jelly))
+             => '(lamb chops and jelly))
 
 (facts "about firsts"
   (firsts '()) => '()
-  (firsts '(a)) => '()
-  (firsts '((a))) => '(a)
-  (firsts '(((a)))) => '((a))
-  (firsts '((a) (b) (c))) => '(a b c)
-  (firsts '((a) b (c))) => '(a c)
-  (firsts '((a b) (b c) (c d))) => '(a b c)
-  (firsts '((a b) ((b) c) (c d))) => '(a (b) c))
+  (firsts '(x)) => '()
+  (firsts '((x))) => '(x)
+  (firsts '(((x)))) => '((x))
+
+  (firsts '((apple peach pumpkin)
+            (plum pear cherry)
+            (grape raising pea)
+            (bean carrot eggplant))) => '(apple plum grape bean)
+
+  (firsts '(((five plums) four)
+            (eleven green oranges)
+            ((no) more))) => '((five plums) eleven (no)))
 
 (facts "about insertR"
   (insertR 'n 'o '()) => '()
@@ -115,6 +122,8 @@
   (multisubst 'n 'o '(o x)) => '(n x)
   (multisubst 'n 'o '(x o y)) => '(x n y)
   (multisubst 'n 'o '(x o y o)) => '(x n y n))
+
+; 4. Numbers Games
 
 (facts "about add1"
   (add1 0) => 1
@@ -195,29 +204,29 @@
 (facts "about length"
   (length '()) => 0
   (length '(6)) => 1
-  (length '(6 5 4 3 2 1)) => 6)
+  (length '(hotdogs with mustard sauerkraut and pickles)) => 6)
 
 (facts "about pick"
-  (pick 1 '(6 5 4)) => 6
-  (pick 2 '(6 5 4)) => 5
-  (pick 3 '(6 5 4)) => 4)
+  (pick 1 '(x)) => 'x
+  (pick 4 '(lasagna spaghetti ravioli macaroni meatball)) => 'macaroni)
 
 (facts "about rempick"
   (rempick 1 '(6 5 4)) => '(5 4)
   (rempick 2 '(6 5 4)) => '(6 4)
-  (rempick 3 '(6 5 4)) => '(6 5))
+  (rempick 3 '(6 5 4)) => '(6 5)
+  (rempick 3 '(hotdogs with hot mustard)) => '(hotdogs with mustard))
 
 (facts "about nonums"
   (nonums '()) => '()
-  (nonums '(6 5 4)) => '()
-  (nonums '(a 5 c)) => '(a c)
-  (nonums '(a b c)) => '(a b c))
+  (nonums '(5)) => '()
+  (nonums '(x)) => '(x)
+  (nonums '(5 pears 6 prunes 9 dates)) => '(pears prunes dates))
 
 (facts "about allnums"
   (allnums '()) => '()
-  (allnums '(6 5 4)) => '(6 5 4)
-  (allnums '(a 5 c)) => '(5)
-  (allnums '(a b c)) => '())
+  (allnums '(5)) => '(5)
+  (allnums '(a)) => '()
+  (allnums '(5 pears 6 prunes 9 dates)) => '(5 6 9))
 
 (facts "about occur"
   (occur 'x '()) => 0
@@ -230,16 +239,17 @@
   (one? 1) => true
   (one? 2) => false)
 
+; 5. Oh My Gawd: It's Full of Stars
+
 (facts "about rember*"
-  (rember* 'x '()) => '()
-  (rember* 'x '(x)) => '()
-  (rember* 'x '((x))) => '(())
-  (rember* 'x '(a x (b x))) => '(a (b))
-  (rember* 'x '(a x (b (c x d)))) => '(a (b (c d))))
+  (rember* 'x '(a x b)) => '(a b)
+  (rember* 'x '(a (x) b)) => '(a () b)
+  (rember* 'cup
+    '((coffee) cup ((tea) cup) (and (hick)) cup))
+    =>
+    '((coffee) ((tea)) (and (hick))))
 
 (facts "about insertR*"
-  (insertR* 'n 'o '()) => '()
-  (insertR* 'n 'o '(o)) => '(o n)
   (insertR* 'n 'o '(x o y)) => '(x o n y)
   (insertR* 'n 'o '(x (o) y)) => '(x (o n) y)
   (insertR* 'roast 'chuck
