@@ -209,5 +209,13 @@
       :else (cons (rember* e (car l)) (rember* e (cdr l)))
       )))
   
-
+(def insertR*
+  (fn [n o l ]
+    (cond
+      (null? l) l
+      (atom? (car l))
+        (cond
+          (eq? (car l) o) (cons o (cons n (cdr l)))
+          :else (cons (car l) (insertR* n o (cdr l))))
+      :else (cons (insertR* n o (car l)) (insertR* n o (cdr l))))))
 

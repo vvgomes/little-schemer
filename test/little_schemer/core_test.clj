@@ -237,3 +237,17 @@
   (rember* 'x '(a x (b x))) => '(a (b))
   (rember* 'x '(a x (b (c x d)))) => '(a (b (c d))))
 
+(facts "about insertR*"
+  (insertR* 'n 'o '()) => '()
+  (insertR* 'n 'o '(o)) => '(o n)
+  (insertR* 'n 'o '(x o y)) => '(x o n y)
+  (insertR* 'n 'o '(x (o) y)) => '(x (o n) y)
+  (insertR* 'roast 'chuck
+    '((how much (wood)) could ((a (wood) chuck))
+     (((chuck))) (if (a) ((wood chuck)))
+        could chuck wood))
+     =>
+    '((how much (wood)) could ((a (wood) chuck roast))
+     (((chuck roast))) (if (a) ((wood chuck roast)))
+        could chuck roast wood))
+
