@@ -1,10 +1,14 @@
 (ns little-schemer.core)
 
+; 1. Toys
+
 (def atom? (complement seq?))
 (def car first)
 (def cdr rest)
 (def null? empty?)
 (def eq? =)
+
+; 2. Do it, Do It Again, an Again, and Again...
 
 (def lat?
   (fn [l]
@@ -21,6 +25,8 @@
         (or 
           (eq? (car l) e)
           (member? e (cdr l))))))
+
+; 3. Cons the Magnificent
 
 (def rember
   (fn [e l]
@@ -77,6 +83,8 @@
       (null? l) l
       (eq? (car l) o) (cons n (multisubst n o (cdr l)))
       :else (cons (car l) (multisubst n o (cdr l))))))
+
+; 4. Numbers Games
 
 (def add1 (partial + 1))
 
@@ -198,6 +206,8 @@
       (one? n) (cdr l)
       :else (cons (car l) (rempick (sub1 n) (cdr l))))))
 
+; 5. Oh My Gawd: It's Full of Stars
+
 (def rember*
   (fn [e l]
     (cond
@@ -206,8 +216,7 @@
         (cond
           (eq? (car l) e) (rember* e (cdr l))
           :else (cons (car l) (rember* e (cdr l))))
-      :else (cons (rember* e (car l)) (rember* e (cdr l)))
-      )))
+      :else (cons (rember* e (car l)) (rember* e (cdr l))))))
   
 (def insertR*
   (fn [n o l ]
