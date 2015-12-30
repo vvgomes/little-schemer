@@ -244,10 +244,8 @@
 (facts "about rember*"
   (rember* 'x '(a x b)) => '(a b)
   (rember* 'x '(a (x) b)) => '(a () b)
-  (rember* 'cup
-    '((coffee) cup ((tea) cup) (and (hick)) cup))
-    =>
-    '((coffee) ((tea)) (and (hick))))
+  (rember* 'cup '((coffee) cup ((tea) cup) (and (hick)) cup))
+    => '((coffee) ((tea)) (and (hick))))
 
 (facts "about insertR*"
   (insertR* 'n 'o '(x o y)) => '(x o n y)
