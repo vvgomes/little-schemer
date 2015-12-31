@@ -250,6 +250,7 @@
 (facts "about insertR*"
   (insertR* 'n 'o '(x o y)) => '(x o n y)
   (insertR* 'n 'o '(x (o) y)) => '(x (o n) y)
+  (insertR* 'n 'o '(o x o)) => '(o n x o n)
   (insertR* 'roast 'chuck
     '((how much (wood)) could ((a (wood) chuck))
      (((chuck))) (if (a) ((wood chuck)))
