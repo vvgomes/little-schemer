@@ -235,9 +235,6 @@
       (atom? (car l))
         (cond
           (eq? (car l) e) (add1 (occur* e (cdr l)))
-          :else (occur* e (cdr l))
-          )
-      :else (add (occur* e (car l)) (occur* e (cdr l)))
-      )
-    )
-  )
+          :else (occur* e (cdr l)))
+      :else (add (occur* e (car l)) (occur* e (cdr l))))))
+
