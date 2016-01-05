@@ -260,3 +260,13 @@
      (((chuck roast))) (if (a) ((wood chuck roast)))
         could chuck roast wood))
 
+(facts "about occur*"
+  (occur* 'x '()) => 0
+  (occur* 'x '(y)) => 0
+  (occur* 'x '(x)) => 1
+  (occur* 'x '((x))) => 1
+  (occur* 'x '((x) x)) => 2
+  (occur* 'x '(x (x))) => 2
+  (occur* 'banana 
+    '((banana) (split ((((banana ice))) (cream (banana)) sherbet))
+      (banana) (bread) (banana brandy))) => 5)

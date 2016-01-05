@@ -228,3 +228,16 @@
           :else (cons (car l) (insertR* n o (cdr l))))
       :else (cons (insertR* n o (car l)) (insertR* n o (cdr l))))))
 
+(def occur*
+  (fn [e l]
+    (cond
+      (null? l) 0
+      (atom? (car l))
+        (cond
+          (eq? (car l) e) (add1 (occur* e (cdr l)))
+          :else (occur* e (cdr l))
+          )
+      :else (add (occur* e (car l)) (occur* e (cdr l)))
+      )
+    )
+  )
