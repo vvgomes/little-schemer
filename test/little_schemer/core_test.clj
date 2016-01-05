@@ -271,3 +271,17 @@
     '((banana) (split ((((banana ice))) (cream (banana)) sherbet))
       (banana) (bread) (banana brandy))) => 5)
 
+(facts "about subst*"
+  (subst* 'n 'o '()) => '()
+  (subst* 'n 'o '(x y z)) => '(x y z)
+  (subst* 'n 'o '(x o z)) => '(x n z)
+  (subst* 'n 'o '(x (o) z)) => '(x (n) z)
+  (subst* 'orange 'banana
+    '((banana) (split ((((banana ice)))
+      (cream (banana)) sherbet))
+      (banana) (bread) (banana brandy)))
+       =>
+    '((orange) (split ((((orange ice)))
+      (cream (orange)) sherbet))
+      (orange) (bread) (orange brandy)))
+

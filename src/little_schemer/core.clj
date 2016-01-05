@@ -238,3 +238,13 @@
           :else (occur* e (cdr l)))
       :else (add (occur* e (car l)) (occur* e (cdr l))))))
 
+(def subst*
+  (fn [n o l]
+    (cond
+      (null? l) l
+      (atom? (car l))
+        (cond
+          (eq? (car l) o) (cons n (subst* n o (cdr l)))
+          :else (cons (car l) (subst* n o (cdr l))))
+      :else (cons (subst* n o (car l)) (subst* n o (cdr l))))))
+
