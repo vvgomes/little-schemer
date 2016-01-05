@@ -248,3 +248,13 @@
           :else (cons (car l) (subst* n o (cdr l))))
       :else (cons (subst* n o (car l)) (subst* n o (cdr l))))))
 
+(def insertL*
+  (fn [n o l]
+    (cond
+      (null? l) l
+      (atom? (car l))
+        (cond
+          (eq? (car l) o) (cons n (cons o (insertL* n o (cdr l))))
+          :else (cons (car l) (insertL* n o (cdr l))))
+      :else (cons (insertL* n o (car l)) (insertL* n o (cdr l))))))
+

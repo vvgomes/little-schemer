@@ -280,8 +280,21 @@
     '((banana) (split ((((banana ice)))
       (cream (banana)) sherbet))
       (banana) (bread) (banana brandy)))
-       =>
+    =>
     '((orange) (split ((((orange ice)))
       (cream (orange)) sherbet))
       (orange) (bread) (orange brandy)))
+
+(facts "about insertL*"
+  (insertL* 'n 'o '()) => '()
+  (insertL* 'n 'o '(x y z)) => '(x y z)
+  (insertL* 'n 'o '(x o z)) => '(x n o z)
+  (insertL* 'n 'o '(x (o) z)) => '(x (n o) z)
+  (insertL* 'pecker 'chuck
+    '((how much (wood)) could ((a (wood) chuck))
+     (((chuck))) (if (a) ((wood chuck))) could chuck wood))
+    =>
+    '((how much (wood)) could ((a (wood) pecker chuck))
+     (((pecker chuck))) (if (a) ((wood pecker chuck)))
+        could pecker chuck wood))
 
