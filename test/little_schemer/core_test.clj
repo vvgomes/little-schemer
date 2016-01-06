@@ -298,3 +298,10 @@
      (((pecker chuck))) (if (a) ((wood pecker chuck)))
         could pecker chuck wood))
 
+(facts "about member*"
+  (member* 'n '()) => false
+  (member* 'n '(x y z)) => false
+  (member* 'n '(x n z)) => true
+  (member* 'n '(x (n) z)) => true
+  (member* 'chips '((potato) (chips ((with) fish) (chips)))) => true)
+

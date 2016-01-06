@@ -258,3 +258,11 @@
           :else (cons (car l) (insertL* n o (cdr l))))
       :else (cons (insertL* n o (car l)) (insertL* n o (cdr l))))))
 
+(def member*
+  (fn [n l]
+    (cond
+      (null? l) false
+      (atom? (car l))
+        (or (eq? (car l) n) (member* n (cdr l)))
+      :else (or (member* n (car l)) (member* n (cdr l))))))
+
