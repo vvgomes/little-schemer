@@ -266,3 +266,9 @@
         (or (eq? (car l) n) (member* n (cdr l)))
       :else (or (member* n (car l)) (member* n (cdr l))))))
 
+(def leftmost
+  (fn [l]
+    (cond
+      (atom? (car l)) (car l)
+      :else (leftmost (car l)))))
+

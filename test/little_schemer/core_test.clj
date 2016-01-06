@@ -305,3 +305,10 @@
   (member* 'n '(x (n) z)) => true
   (member* 'chips '((potato) (chips ((with) fish) (chips)))) => true)
 
+(facts "about leftmost"
+  (leftmost '(x y z)) => 'x
+  (leftmost '((x) y z)) => 'x
+  (leftmost '(((x) y) z)) => 'x
+  (leftmost '((potato) (chips ((with) fish) (chips)))) => 'potato
+  (leftmost '(((hot) (tuna (and))) cheese)) => 'hot)
+
