@@ -300,15 +300,36 @@
 
 (facts "about member*"
   (member* 'n '()) => false
-  (member* 'n '(x y z)) => false
-  (member* 'n '(x n z)) => true
-  (member* 'n '(x (n) z)) => true
+  (member* 'n '(x)) => false
+  (member* 'n '(n)) => true
+  (member* 'n '((n))) => true
   (member* 'chips '((potato) (chips ((with) fish) (chips)))) => true)
 
 (facts "about leftmost"
-  (leftmost '(x y z)) => 'x
-  (leftmost '((x) y z)) => 'x
-  (leftmost '(((x) y) z)) => 'x
+  (leftmost '(x)) => 'x
+  (leftmost '((x))) => 'x
+  (leftmost '(((x)))) => 'x
   (leftmost '((potato) (chips ((with) fish) (chips)))) => 'potato
   (leftmost '(((hot) (tuna (and))) cheese)) => 'hot)
+
+(facts "about eqlist?"
+  (eqlist? '() '()) => true
+  (eqlist? '() '(x)) => false
+  (eqlist? '(x) '()) => false
+  (eqlist? '(x) '(x)) => true
+
+  (eqlist? '(strawberry ice cream)
+           '(strawberry ice cream)) => true
+ 
+  (eqlist? '(strawberry ice cream)
+           '(strawberry cream ice)) => false
+ 
+  (eqlist? '(banana ((split)))
+           '((banana) (split))) => false
+ 
+  (eqlist? '(beef ((sausage)) (and (soda)))
+           '(beef ((salami)) (and (soda)))) => false
+ 
+  (eqlist? '(beef ((sausage)) (and (soda)))
+           '(beef ((sausage)) (and (soda)))) => true)
 

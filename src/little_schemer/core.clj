@@ -272,3 +272,10 @@
       (atom? (car l)) (car l)
       :else (leftmost (car l)))))
 
+(def eqlist?
+  (fn [l1 l2]
+    (cond
+      (and (null? l1) (null? l2)) true
+      (or (null? l1) (null? l2)) false
+      :else (and (eq? (car l1) (car l2)) (eqlist? (cdr l1) (cdr l2))))))
+
