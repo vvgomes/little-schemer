@@ -333,3 +333,15 @@
   (eqlist? '(beef ((sausage)) (and (soda)))
            '(beef ((sausage)) (and (soda)))) => true)
 
+(facts "about equal?"
+  (equal? 'x 'x) => true
+  (equal? 'x 'y) => false
+  (equal? 'x '(x)) => false
+  (equal? '(x) 'x) => false
+  (equal? '() '()) => true
+  (equal? '() '(x)) => false
+  (equal? '(x) '()) => false
+  (equal? '(x) '(x)) => true
+  (equal? '((x)) '(x)) => false
+  (equal? '((x)) '((x))) => true)
+
