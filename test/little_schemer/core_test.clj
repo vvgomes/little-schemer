@@ -346,3 +346,10 @@
   (equal? '((x)) '(x)) => false
   (equal? '((x)) '((x))) => true)
 
+(facts "about rembersexp"
+  (rembersexp 'x '()) => '()
+  (rembersexp 'x '(x)) => '()
+  (rembersexp 'x '(y)) => '(y)
+  (rembersexp '(x) '((x) y)) => '(y))
+
+

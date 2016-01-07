@@ -295,3 +295,10 @@
               (equal? (car l1) (car l2))
               (eqlist? (cdr l1) (cdr l2))))))
 
+(def rembersexp
+  (fn [s l]
+    (cond
+      (null? l) l
+      (equal? (car l) s) (cdr l)
+      :else (cons (car l) (rembersexp s (cdr l))))))
+
