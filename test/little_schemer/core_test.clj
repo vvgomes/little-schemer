@@ -317,6 +317,7 @@
   (eqlist? '() '(x)) => false
   (eqlist? '(x) '()) => false
   (eqlist? '(x) '(x)) => true
+  (equal? '((x)) '((x))) => true
 
   (eqlist? '(strawberry ice cream)
            '(strawberry ice cream)) => true

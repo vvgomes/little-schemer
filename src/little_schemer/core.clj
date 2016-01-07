@@ -286,3 +286,12 @@
       (or (atom? s1) (atom? s2)) false
       :else (eqlist? s1 s2))))
 
+(def eqlist?
+  (fn [l1 l2]
+    (cond
+      (and (null? l1) (null? l2)) true
+      (or (null? l1) (null? l2)) false
+      :else (and
+              (equal? (car l1) (car l2))
+              (eqlist? (cdr l1) (cdr l2))))))
+
