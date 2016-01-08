@@ -352,4 +352,15 @@
   (rembersexp 'x '(y)) => '(y)
   (rembersexp '(x) '((x) y)) => '(y))
 
+; 6. Shadows
+
+(facts "about numbered?"
+  (numbered? 1) => true
+  (numbered? 'x) => false
+  (numbered? '(1 + 1)) => true
+  (numbered? '(1 + x)) => false
+  (numbered? '(1 × 1)) => true
+  (numbered? '(1 ↑ 1)) => true
+  (numbered? '(3 + (4 ↑ 5))) => true
+  (numbered? '(2 × sausage)) => false)
 

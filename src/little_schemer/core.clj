@@ -302,3 +302,15 @@
       (equal? (car l) s) (cdr l)
       :else (cons (car l) (rembersexp s (cdr l))))))
 
+; 6. Shadows
+
+(def numbered?
+  (fn [exp]
+    (cond
+      (atom? exp) (number? exp)
+      (member? (car (cdr exp)) '(+ × ↑))
+        (and
+          (numbered? (car exp))
+          (numbered? (car (cdr (cdr exp)))))
+      :else false)))
+
