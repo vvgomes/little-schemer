@@ -323,3 +323,24 @@
       (eq? (car exp) '*)
         (* (value (car (cdr exp))) (value (car (cdr (cdr exp))))))))
 
+(def first-sub-exp
+  (fn [exp]
+    (car (cdr exp))))
+
+(def second-sub-exp
+  (fn [exp]
+    (car (cdr (cdr exp)))))
+
+(def operator
+  (fn [exp]
+    (car exp)))
+
+(def value
+  (fn [exp]
+    (cond
+      (atom? exp) exp
+      (eq? (operator exp) '+)
+        (+ (value (first-sub-exp exp)) (value (second-sub-exp exp)))
+      (eq? (operator exp) '*)
+        (* (value (first-sub-exp exp)) (value (second-sub-exp exp))))))
+
