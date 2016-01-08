@@ -308,9 +308,9 @@
   (fn [exp]
     (cond
       (atom? exp) (number? exp)
-      (member? (car (cdr exp)) '(+ × ↑))
+      :else
         (and
+          (member? (car (cdr exp)) '(+ × ↑))
           (numbered? (car exp))
-          (numbered? (car (cdr (cdr exp)))))
-      :else false)))
+          (numbered? (car (cdr (cdr exp))))))))
 
