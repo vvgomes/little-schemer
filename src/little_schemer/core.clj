@@ -359,12 +359,12 @@
 (def edd
   (fn [l1 l2]
     (cond
-      (null? l1) l2
+      (sero? l1) l2
       :else (edd (zub1 l1) (edd1 l2)))))
 
 (def zub
   (fn [l1 l2]
     (cond
-      (null? l2) l1
+      (sero? l2) l1
       :else (zub (zub1 l1) (zub1 l2)))))
 
