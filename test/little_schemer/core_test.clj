@@ -359,8 +359,13 @@
   (numbered? 'x) => false
   (numbered? '(1 + 1)) => true
   (numbered? '(1 + x)) => false
-  (numbered? '(1 × 1)) => true
-  (numbered? '(1 ↑ 1)) => true
-  (numbered? '(3 + (4 ↑ 5))) => true
-  (numbered? '(2 × sausage)) => false)
+  (numbered? '(1 * 1)) => true
+  (numbered? '(1 * x)) => false
+  (numbered? '(3 + (4 * 5))) => true
+  (numbered? '(2 * sausage)) => false)
+
+(facts "about value"
+  (value 13) => 13
+  (value '(1 + 3)) => 4
+  (value '(1 + (3 * 4))) => 13)
 

@@ -310,7 +310,16 @@
       (atom? exp) (number? exp)
       :else
         (and
-          (member? (car (cdr exp)) '(+ × ↑))
+          (member? (car (cdr exp)) '(+ *))
           (numbered? (car exp))
           (numbered? (car (cdr (cdr exp))))))))
+
+(def value
+  (fn [exp]
+    (cond
+      (atom? exp) exp
+      (eq? (car (cdr exp)) '+)
+        (+ (value (car exp)) (value (car (cdr (cdr exp)))))
+      (eq? (car (cdr exp)) '*)
+        (* (value (car exp)) (value (car (cdr (cdr exp))))))))
 
