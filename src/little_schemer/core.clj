@@ -347,3 +347,8 @@
 (def sero?
   (fn [l]
     (null? l)))
+
+(def edd1
+  (fn [l]
+    (cons '() l)))
+

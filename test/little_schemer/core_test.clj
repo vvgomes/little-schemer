@@ -373,3 +373,7 @@
   (sero? '()) => true
   (sero? '(())) => false)
 
+(facts "about edd1"
+  (edd1 '()) => '(())
+  (edd1 '(())) => '(() ()))
+
