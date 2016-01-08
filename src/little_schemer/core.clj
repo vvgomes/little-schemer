@@ -344,3 +344,6 @@
       (eq? (operator exp) '*)
         (* (value (first-sub-exp exp)) (value (second-sub-exp exp))))))
 
+(def sero?
+  (fn [l]
+    (null? l)))

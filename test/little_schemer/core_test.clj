@@ -369,3 +369,7 @@
   (value '(+ 1 3)) => 4
   (value '(+ 1 (* 3 4))) => 13)
 
+(facts "about sero?"
+  (sero? '()) => true
+  (sero? '(())) => false)
+
