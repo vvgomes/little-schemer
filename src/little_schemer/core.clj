@@ -352,3 +352,6 @@
   (fn [l]
     (cons '() l)))
 
+(def zub1
+  (fn [l]
+    (cdr l)))
