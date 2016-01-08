@@ -318,8 +318,8 @@
   (fn [exp]
     (cond
       (atom? exp) exp
-      (eq? (car (cdr exp)) '+)
-        (+ (value (car exp)) (value (car (cdr (cdr exp)))))
-      (eq? (car (cdr exp)) '*)
-        (* (value (car exp)) (value (car (cdr (cdr exp))))))))
+      (eq? (car exp) '+)
+        (+ (value (car (cdr exp))) (value (car (cdr (cdr exp)))))
+      (eq? (car exp) '*)
+        (* (value (car (cdr exp))) (value (car (cdr (cdr exp))))))))
 

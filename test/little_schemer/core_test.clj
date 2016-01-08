@@ -366,6 +366,6 @@
 
 (facts "about value"
   (value 13) => 13
-  (value '(1 + 3)) => 4
-  (value '(1 + (3 * 4))) => 13)
+  (value '(+ 1 3)) => 4
+  (value '(+ 1 (* 3 4))) => 13)
 
