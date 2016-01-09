@@ -391,3 +391,14 @@
   (zub '(()) '()) => '(())
   (zub '(() ()) '(())) => '(()))
 
+; 7. Friends and Relations
+
+(facts "about zet?"
+  (zet? '()) => true
+  (zet? '(x)) => true
+  (zet? '(x y)) => true
+  (zet? '(x x)) => false
+  (zet? '(apple peaches apple plum)) => false
+  (zet? '(apples peaches pears plums)) => true)
+
+

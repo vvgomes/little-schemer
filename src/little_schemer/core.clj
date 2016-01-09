@@ -368,3 +368,12 @@
       (sero? l2) l1
       :else (zub (zub1 l1) (zub1 l2)))))
 
+; 7. Friends and Relations
+
+(def zet?
+  (fn [lat]
+    (cond
+      (null? lat) true
+      (member? (car lat) (cdr lat)) false
+      :else (zet? (cdr lat)))))
+
