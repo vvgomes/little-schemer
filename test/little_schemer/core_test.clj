@@ -123,6 +123,13 @@
   (multisubst 'n 'o '(x o y)) => '(x n y)
   (multisubst 'n 'o '(x o y o)) => '(x n y n))
 
+(facts "about multirember"
+  (multirember 'x '()) => '()
+  (multirember 'x '(x)) => '()
+  (multirember 'x '(x x)) => '()
+  (multirember 'x '(x y x)) => '(y)
+  (multirember 'x '(y z)) => '(y z))
+
 ; 4. Numbers Games
 
 (facts "about add1"
@@ -397,8 +404,15 @@
   (zet? '()) => true
   (zet? '(x)) => true
   (zet? '(x y)) => true
-  (zet? '(x x)) => false
+  (zet? '(x y x)) => false
   (zet? '(apple peaches apple plum)) => false
   (zet? '(apples peaches pears plums)) => true)
 
+(facts "about makeset"
+  (makeset '()) => '()
+  (makeset '(x)) => '(x)
+  (makeset '(x y)) => '(x y)
+  (makeset '(x y x)) => '(x y)
+  (makeset '(apple peach pear peach plum apple lemon peach)) =>
+           '(apple peach pear plum lemon))
 

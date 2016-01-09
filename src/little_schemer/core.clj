@@ -84,6 +84,13 @@
       (eq? (car l) o) (cons n (multisubst n o (cdr l)))
       :else (cons (car l) (multisubst n o (cdr l))))))
 
+(def multirember
+  (fn [e l]
+    (cond
+      (null? l) l
+      (eq? (car l) e) (multirember e (cdr l))
+      :else (cons (car l) (multirember e (cdr l))))))
+
 ; 4. Numbers Games
 
 (def add1 (partial + 1))
@@ -376,4 +383,11 @@
       (null? lat) true
       (member? (car lat) (cdr lat)) false
       :else (zet? (cdr lat)))))
+
+(def makeset
+  (fn [lat]
+    (cond
+      (null? lat) lat
+      :else
+        (cons (car lat) (makeset (multirember (car lat) (cdr lat)))))))
 
