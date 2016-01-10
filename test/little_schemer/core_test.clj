@@ -441,3 +441,11 @@
   (eqset? '(six large chicken with wings)
           '(six chicken with large wings)) => true)
 
+(facts "about intersect?"
+  (intersect? '() '()) => false
+  (intersect? '(x) '()) => false
+  (intersect? '() '(x)) => false
+  (intersect? '(x y) '(x z)) => true
+  (intersect? '(stewed tomatos and macaroni)
+              '(macaroni and cheese)))
+
