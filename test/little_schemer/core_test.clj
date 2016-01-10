@@ -449,3 +449,12 @@
   (intersect? '(stewed tomatos and macaroni)
               '(macaroni and cheese)))
 
+(facts "about intersect"
+  (intersect '() '()) => '()
+  (intersect '(x) '()) => '()
+  (intersect '() '(x)) => '()
+  (intersect '(x y) '(x z)) => '(x)
+  (intersect '(stewed tomatos and macaroni)
+              '(macaroni and cheese))
+           => '(and macaroni))
+
