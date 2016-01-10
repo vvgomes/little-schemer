@@ -416,3 +416,18 @@
   (makeset '(apple peach pear peach plum apple lemon peach)) =>
            '(apple peach pear plum lemon))
 
+(facts "about subset?"
+  (subset? '() '()) => true
+  (subset? '(x) '(x)) => true
+  (subset? '(x) '(x y)) => true
+  (subset? '(x z) '(x y)) => false
+  (subset?
+    '(5 chicken wings)
+    '(5 hamburgers 2 pieces fried chicken and light duckling wings))
+    => true
+
+  (subset?
+    '(4 pounds of horseradish)
+    '(four pounds chicken and 5 ounces horseradish))
+    => false)
+

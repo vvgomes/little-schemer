@@ -391,3 +391,13 @@
       :else
         (cons (car lat) (makeset (multirember (car lat) (cdr lat)))))))
 
+(def subset?
+  (fn [s1 s2]
+    (cond
+      (null? s1) true
+      :else (and
+        (member? (car s1) s2)
+        (subset? (cdr s1) s2)
+        )
+      )
+    ))
