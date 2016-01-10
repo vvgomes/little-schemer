@@ -397,7 +397,9 @@
       (null? s1) true
       :else (and
         (member? (car s1) s2)
-        (subset? (cdr s1) s2)
-        )
-      )
-    ))
+        (subset? (cdr s1) s2)))))
+
+(def eqset?
+  (fn [s1 s2]
+    (and (subset? s1 s2) (subset? s2 s1))))
+

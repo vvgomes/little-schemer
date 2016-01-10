@@ -431,3 +431,13 @@
     '(four pounds chicken and 5 ounces horseradish))
     => false)
 
+(facts "about eqset?"
+  (eqset? '() '()) => true
+  (eqset? '(x) '()) => false
+  (eqset? '() '(x)) => false
+  (eqset? '(x) '(x)) => true
+  (eqset? '(x y) '(y x)) => true
+  (eqset? '(x y) '(x z)) => false
+  (eqset? '(six large chicken with wings)
+          '(six chicken with large wings)) => true)
+
