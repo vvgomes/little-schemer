@@ -458,3 +458,12 @@
               '(macaroni and cheese))
            => '(and macaroni))
 
+(facts "about union"
+  (union '() '()) => '()
+  (union '(x) '()) => '(x)
+  (union '() '(x)) => '(x)
+  (union '(x y) '(x)) => '(y x)
+  (union '(stewed tomatoes and macaroni casserole)
+         '(macaroni and cheese))
+      => '(stewed tomatoes casserole macaroni and cheese))
+
