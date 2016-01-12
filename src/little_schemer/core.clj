@@ -430,3 +430,11 @@
       (or (null? (car lset)) (null? (cdr lset))) (car lset)
       :else (intersect (car lset) (intersectall (cdr lset))))))
 
+(def apair?
+  (fn [sexp]
+    (cond
+      (or (null? sexp) (null? (cdr sexp))) false
+      (null? (cdr (cdr sexp))) true
+      :else false
+    )))
+

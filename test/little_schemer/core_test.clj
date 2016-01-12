@@ -481,3 +481,12 @@
                   (and 6 prunes with some apples)))
              => '(6 and))
 
+(facts "about apair?"
+  (apair? '()) => false
+  (apair? '(x)) => false
+  (apair? '(x x x)) => false
+  (apair? '(pear pear)) => true
+  (apair? '(3 7)) => true
+  (apair? '((2) (pair))) => true
+  (apair? '(full (house))) => true)
+
