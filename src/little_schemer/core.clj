@@ -435,6 +435,13 @@
     (cond
       (or (null? sexp) (null? (cdr sexp))) false
       (null? (cdr (cdr sexp))) true
-      :else false
-    )))
+      :else false)))
+
+(def build
+  (fn [sexp1 sexp2]
+    (cons sexp1 (cons sexp2 '()))))
+
+(def third
+  (fn [l]
+    (car (cdr (cdr l)))))
 

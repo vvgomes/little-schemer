@@ -490,3 +490,11 @@
   (apair? '((2) (pair))) => true
   (apair? '(full (house))) => true)
 
+(facts "about build"
+  (build 'x 'y) => '(x y)
+  (build '(x) '(y)) => '((x) (y)))
+
+(facts "about third"
+  (third '(x y z)) => 'z
+  (third '(x y z w)) => 'z)
+
