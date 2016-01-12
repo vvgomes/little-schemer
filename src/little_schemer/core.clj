@@ -424,3 +424,9 @@
       (member? (car s1) s2) (union (cdr s1) s2)
       :else (cons (car s1) (union (cdr s1) s2)))))
 
+(def intersectall
+  (fn [lset]
+    (cond
+      (or (null? (car lset)) (null? (cdr lset))) (car lset)
+      :else (intersect (car lset) (intersectall (cdr lset))))))
+

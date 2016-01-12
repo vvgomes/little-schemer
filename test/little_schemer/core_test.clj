@@ -467,3 +467,17 @@
          '(macaroni and cheese))
       => '(stewed tomatoes casserole macaroni and cheese))
 
+(facts "about intersectall"
+  (intersectall '(())) => '()
+  (intersectall '((x))) => '(x)
+  (intersectall '(() ())) => '()
+  (intersectall '(() (x))) => '()
+  (intersectall '((x) ())) => '()
+  (intersectall '((x) (y))) => '()
+  (intersectall '((x) (x))) => '(x)
+  (intersectall '((a b c) (c a d e) (e f g h a b))) => '(a)
+  (intersectall '((6 pears and)
+                  (3 peaches and 6 peppers)
+                  (and 6 prunes with some apples)))
+             => '(6 and))
+
