@@ -488,8 +488,6 @@
       (null? rel) '()
       :else
         (cons
-          (build
-            (second (car rel))
-            (first (car rel)))
+          (revpair (car rel))
           (revrel (cdr rel))))))
 
