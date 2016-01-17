@@ -497,3 +497,5 @@
       (fun? rel)
       (fun? (revrel rel)))))
 
+; 9. Lambda the Ultimate
+
