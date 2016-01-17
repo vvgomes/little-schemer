@@ -478,6 +478,10 @@
   (fn [rel]
     (zet? (firsts rel))))
 
+(def revpair
+  (fn [pair]
+    (build (second pair) (first pair))))
+
 (def revrel
   (fn [rel]
     (cond

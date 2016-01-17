@@ -527,6 +527,9 @@
   (fun? '((8 3) (4 2) (7 6) (6 2) (3 4))) => true
   (fun? '((d 4) (b 0) (b 9) (e 5) (g 4))) => false)
 
+(facts "about revpair"
+  (revpair '(x y)) => '(y x))
+
 (facts "about revrel"
   (revrel '()) => '()
   (revrel '((x y))) => '((y x))
