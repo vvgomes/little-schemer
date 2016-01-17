@@ -448,7 +448,7 @@
   (intersect? '() '(x)) => false
   (intersect? '(x y) '(x z)) => true
   (intersect? '(stewed tomatos and macaroni)
-              '(macaroni and cheese)))
+              '(macaroni and cheese)) => true)
 
 (facts "about intersect"
   (intersect '() '()) => '()
@@ -526,4 +526,10 @@
   (fun? '((4 3) (4 2) (7 6) (6 2) (3 4))) => false
   (fun? '((8 3) (4 2) (7 6) (6 2) (3 4))) => true
   (fun? '((d 4) (b 0) (b 9) (e 5) (g 4))) => false)
+
+(facts "about revrel"
+  (revrel '()) => '()
+  (revrel '((x y))) => '((y x))
+  (revrel '((8 a) (pumpkin pie) (got sick)))
+       => '((a 8) (pie pumpkin) (sick got)))
 

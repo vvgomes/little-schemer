@@ -478,3 +478,14 @@
   (fn [rel]
     (zet? (firsts rel))))
 
+(def revrel
+  (fn [rel]
+    (cond
+      (null? rel) '()
+      :else
+        (cons
+          (build
+            (second (car rel))
+            (first (car rel)))
+          (revrel (cdr rel))))))
+
