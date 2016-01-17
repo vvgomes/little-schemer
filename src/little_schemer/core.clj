@@ -265,15 +265,6 @@
           :else (cons (car l) (insertL* n o (cdr l))))
       :else (cons (insertL* n o (car l)) (insertL* n o (cdr l))))))
 
-(def member*
-  (fn [n l]
-    (cond
-      (null? l) false
-      (atom? (car l))
-        (or (eq? (car l) n) (member* n (cdr l)))
-      (equal? (car l) n) true
-      :else (or (member* n (car l)) (member* n (cdr l))))))
-
 (def leftmost
   (fn [l]
     (cond
@@ -293,6 +284,15 @@
       (and (atom? s1) (atom? s2)) (eq? s1 s2)
       (or (atom? s1) (atom? s2)) false
       :else (eqlist? s1 s2))))
+
+(def member*
+  (fn [n l]
+    (cond
+      (null? l) false
+      (atom? (car l))
+        (or (eq? (car l) n) (member* n (cdr l)))
+      (equal? (car l) n) true
+      :else (or (member* n (car l)) (member* n (cdr l))))))
 
 (def eqlist?
   (fn [l1 l2]
