@@ -491,3 +491,9 @@
           (revpair (car rel))
           (revrel (cdr rel))))))
 
+(def fullfun?
+  (fn [rel]
+    (and
+      (fun? rel)
+      (fun? (revrel rel)))))
+

@@ -536,3 +536,9 @@
   (revrel '((8 a) (pumpkin pie) (got sick)))
        => '((a 8) (pie pumpkin) (sick got)))
 
+(facts "about fullfun?"
+  (fullfun? '((8 3) (4 2) (7 6) (6 2) (3 4))) => false
+  (fullfun? '((8 3) (4 8) (7 6) (6 2) (3 4))) => true
+  (fullfun? '((grape raisin) (plum prune) (stewed prune))) => false
+  (fullfun? '((grape raisin) (plum prune) (stewed grape))) => true)
+
