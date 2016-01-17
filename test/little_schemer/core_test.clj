@@ -522,3 +522,8 @@
   (rel? '((apple peaches) (pumpkin pie) (apple peaches))) => false
   (rel? '((4 3) (4 2) (7 6) (6 2) (3 4))) => true)
 
+(facts "about fun?"
+  (fun? '((4 3) (4 2) (7 6) (6 2) (3 4))) => false
+  (fun? '((8 3) (4 2) (7 6) (6 2) (3 4))) => true
+  (fun? '((d 4) (b 0) (b 9) (e 5) (g 4))) => false)
+

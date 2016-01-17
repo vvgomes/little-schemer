@@ -299,9 +299,10 @@
     (cond
       (and (null? l1) (null? l2)) true
       (or (null? l1) (null? l2)) false
-      :else (and
-              (equal? (car l1) (car l2))
-              (eqlist? (cdr l1) (cdr l2))))))
+      :else
+        (and
+          (equal? (car l1) (car l2))
+          (eqlist? (cdr l1) (cdr l2))))))
 
 (def rembersexp
   (fn [s l]
@@ -472,4 +473,8 @@
           (or
             (null? (cdr sexp))
             (rel? (cdr sexp)))))))
+
+(def fun?
+  (fn [rel]
+    (zet? (firsts rel))))
 
