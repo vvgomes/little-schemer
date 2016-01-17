@@ -271,6 +271,7 @@
       (null? l) false
       (atom? (car l))
         (or (eq? (car l) n) (member* n (cdr l)))
+      (equal? (car l) n) true
       :else (or (member* n (car l)) (member* n (cdr l))))))
 
 (def leftmost
@@ -444,4 +445,31 @@
 (def third
   (fn [l]
     (car (cdr (cdr l)))))
+
+(def atompair?
+  (fn [sexp]
+    (cond
+      (or
+        (atom? sexp)
+        (null? sexp)
+        (null? (cdr sexp))) false
+      (and
+        (null? (cdr (cdr sexp)))
+        (atom? (car sexp))
+        (atom? (car (cdr sexp)))) true
+      :else false)))
+
+(def rel?
+  (fn [sexp]
+    (cond
+      (null? sexp) false
+      (and
+        (atompair? (car sexp))
+        (member* (car sexp) (cdr sexp))) false
+      :else
+        (and
+          (atompair? (car sexp))
+          (or
+            (null? (cdr sexp))
+            (rel? (cdr sexp)))))))
 

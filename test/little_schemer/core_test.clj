@@ -310,6 +310,7 @@
   (member* 'n '(x)) => false
   (member* 'n '(n)) => true
   (member* 'n '((n))) => true
+  (member* '(n) '((n))) => true
   (member* 'chips '((potato) (chips ((with) fish) (chips)))) => true)
 
 (facts "about leftmost"
@@ -497,4 +498,27 @@
 (facts "about third"
   (third '(x y z)) => 'z
   (third '(x y z w)) => 'z)
+
+(facts "about atompair?"
+  (atompair? 'x) => false
+  (atompair? '()) => false
+  (atompair? '(x)) => false
+  (atompair? '((x))) => false
+  (atompair? '(x y)) => true
+  (atompair? '(x y z)) => false
+  (atompair? '((x) y)) => false
+  (atompair? '(x (y))) => false
+  (atompair? '((x) (y))) => false)
+
+(facts "about rel?"
+  (rel? '()) => false
+  (rel? '(x)) => false
+  (rel? '((x))) => false
+  (rel? '((x y))) => true
+  (rel? '((x y z))) => false
+  (rel? '((x y) z)) => false
+  (rel? '(apple peaches pumpkin pie)) => false
+  (rel? '((apple peaches) (pumpkin pie))) => true
+  (rel? '((apple peaches) (pumpkin pie) (apple peaches))) => false
+  (rel? '((4 3) (4 2) (7 6) (6 2) (3 4))) => true)
 
