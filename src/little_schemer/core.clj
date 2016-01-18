@@ -530,7 +530,7 @@
     (fn [n o l]
       (cond
         (null? l) l
-        (test? (car l) o) (cons n l)
+        (test? (car l) o) (cons n (cons o (cdr l)))
         :else (cons (car l) (insertL n o (cdr l)))))))
 
 (def insertRf
