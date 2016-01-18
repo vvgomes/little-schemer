@@ -525,3 +525,11 @@
 (def remberfequal? (remberf equal?))
 (def remberf= (remberf =))
 
+(def insertLf
+  (fn [test?]
+    (fn [n o l]
+      (cond
+        (null? l) l
+        (test? (car l) o) (cons n l)
+        :else (cons (car l) (insertL n o (cdr l)))))))
+

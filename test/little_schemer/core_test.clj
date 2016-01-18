@@ -545,14 +545,23 @@
 ; 9. Lambda the Ultimate
 
 (facts "about remberf"
-  (remberfeq? 'mint '(lamb chops and mint jelly))
+  ((remberf eq?) 'mint '(lamb chops and mint jelly))
                     => '(lamb chops and jelly)
 
-  (remberfequal? 'mint '(lamb chops and mint jelly))
+  ((remberf equal?) 'mint '(lamb chops and mint jelly))
                        => '(lamb chops and jelly)
 
+  ((remberf =) 'mint '(lamb chops and mint jelly))
+                  => '(lamb chops and jelly)
+
+  (remberfeq? 'mint '(lamb chops and mint jelly))
+                 => '(lamb chops and jelly)
+
+  (remberfequal? 'mint '(lamb chops and mint jelly))
+                    => '(lamb chops and jelly)
+
   (remberf= 'mint '(lamb chops and mint jelly))
-                  => '(lamb chops and jelly))
+               => '(lamb chops and jelly))
 
 (facts "about eq?c"
   ((eq?c 'salad) 'salad) => true
@@ -561,4 +570,10 @@
 (facts "about eq?salad"
   (eq?salad 'salad) => true
   (eq?salad 'tuna) => false)
+
+(facts "about insertLf"
+  ((insertLf eq?) 'n 'o '(x o y o)) => '(x n o y o)
+  ((insertLf equal?) 'n 'o '(x o y o)) => '(x n o y o)
+  ((insertLf =) 'n 'o '(x o y o)) => '(x n o y o))
+
 
