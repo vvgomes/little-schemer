@@ -538,6 +538,6 @@
     (fn [n o l]
       (cond
         (null? l) l
-        (eq? (car l) o) (cons o (cons n (cdr l)))
+        (test? (car l) o) (cons o (cons n (cdr l)))
         :else (cons (car l) (insertR n o (cdr l)))))))
 
