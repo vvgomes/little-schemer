@@ -542,3 +542,19 @@
   (fullfun? '((grape raisin) (plum prune) (stewed prune))) => false
   (fullfun? '((grape raisin) (plum prune) (stewed grape))) => true)
 
+; 9. Lambda the Ultimate
+
+(facts "about remberf"
+  (remberf eq? 'mint '(lamb chops and mint jelly))
+             => '(lamb chops and jelly)
+
+  (remberf equal? 'mint '(lamb chops and mint jelly))
+             => '(lamb chops and jelly)
+
+  (remberf = 'mint '(lamb chops and mint jelly))
+             => '(lamb chops and jelly))
+
+(facts "about eq?c"
+  ((eq?c 'salad) 'salad) => true
+  ((eq?c 'salad) 'stake) => false)
+

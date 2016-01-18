@@ -499,3 +499,15 @@
 
 ; 9. Lambda the Ultimate
 
+(def remberf
+  (fn [test? e l]
+    (cond
+      (null? l) l
+      (test? (car l) e) (cdr l)
+      :else (cons (car l) (rember e (cdr l))))))
+
+(def eq?c
+  (fn [x]
+    (fn [y]
+      (eq? x y))))
+
