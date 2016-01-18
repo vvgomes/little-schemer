@@ -581,3 +581,7 @@
   ((insertRf equal?) 'n 'o '(x o y o)) => '(x o n y o)
   ((insertRf =) 'n 'o '(x o y o)) => '(x o n y o))
 
+(facts "about insertg"
+  (((insertg seqL) eq?) 'n 'o '(x o y o)) => '(x n o y o)
+  (((insertg seqR) eq?) 'n 'o '(x o y o)) => '(x o n y o))
+

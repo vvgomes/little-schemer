@@ -531,7 +531,7 @@
       (cond
         (null? l) l
         (test? (car l) o) (cons n (cons o (cdr l)))
-        :else (cons (car l) (insertL n o (cdr l)))))))
+        :else (cons (car l) ((insertLf test?) n o (cdr l)))))))
 
 (def insertRf
   (fn [test?]
@@ -539,5 +539,22 @@
       (cond
         (null? l) l
         (test? (car l) o) (cons o (cons n (cdr l)))
-        :else (cons (car l) (insertR n o (cdr l)))))))
+        :else (cons (car l) ((insertRf test?) n o (cdr l)))))))
+
+(def seqL
+  (fn [o n l]
+    (cons n (cons o (cdr l)))))
+
+(def seqR
+  (fn [o n l]
+    (cons o (cons n (cdr l)))))
+
+(def insertg
+  (fn [s]
+    (fn [test?]
+      (fn [n o l]
+        (cond
+          (null? l) l
+          (test? (car l) o) (s o n l)
+          :else (cons (car l) (((insertg s) test?) n o (cdr l))))))))
 
