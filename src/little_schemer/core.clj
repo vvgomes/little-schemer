@@ -511,3 +511,17 @@
     (fn [y]
       (eq? x y))))
 
+(def eq?salad (eq?c 'salad))
+
+(def remberf
+  (fn [test?]
+    (fn [e l]
+      (cond
+        (null? l) l
+        (test? (car l) e) (cdr l)
+        :else (cons (car l) (rember e (cdr l)))))))
+
+(def remberfeq? (remberf eq?))
+(def remberfequal? (remberf equal?))
+(def remberf= (remberf =))
+
