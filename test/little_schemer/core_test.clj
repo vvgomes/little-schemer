@@ -576,4 +576,8 @@
   ((insertLf equal?) 'n 'o '(x o y o)) => '(x n o y o)
   ((insertLf =) 'n 'o '(x o y o)) => '(x n o y o))
 
+(facts "about insertRf"
+  ((insertRf eq?) 'n 'o '(x o y o)) => '(x o n y o)
+  ((insertRf equal?) 'n 'o '(x o y o)) => '(x o n y o)
+  ((insertRf =) 'n 'o '(x o y o)) => '(x o n y o))
 
