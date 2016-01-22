@@ -543,11 +543,15 @@
 
 (def seqL
   (fn [o n l]
-    (cons n (cons o (cdr l)))))
+    (cons n (cons o l))))
 
 (def seqR
   (fn [o n l]
-    (cons o (cons n (cdr l)))))
+    (cons o (cons n l))))
+
+(def seqS
+  (fn [o n l]
+    (cons n l)))
 
 (def insertg
   (fn [s]
@@ -555,6 +559,6 @@
       (fn [n o l]
         (cond
           (null? l) l
-          (test? (car l) o) (s o n l)
+          (test? (car l) o) (s o n (cdr l))
           :else (cons (car l) (((insertg s) test?) n o (cdr l))))))))
 

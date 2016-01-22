@@ -583,5 +583,6 @@
 
 (facts "about insertg"
   (((insertg seqL) eq?) 'n 'o '(x o y o)) => '(x n o y o)
-  (((insertg seqR) eq?) 'n 'o '(x o y o)) => '(x o n y o))
+  (((insertg seqR) eq?) 'n 'o '(x o y o)) => '(x o n y o)
+  (((insertg seqS) eq?) 'n 'o '(x o y o)) => '(x n y o))
 
