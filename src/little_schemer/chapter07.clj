@@ -1,12 +1,5 @@
-(ns little-schemer.core)
-
-; 1. Toys
-
-(def atom? (complement seq?))
-(def car first)
-(def cdr rest)
-(def null? empty?)
-(def eq? =)
+(ns little-schemer.chapter02
+  (:use [little-schemer.chapter01]))
 
 ; 2. Do it, Do It Again, an Again, and Again...
 
