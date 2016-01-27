@@ -1,6 +1,8 @@
 (ns little-schemer.chapter08-test
   (:use midje.sweet)
-  (:use [little-schemer.chapter08]))
+  (:use [little-schemer.chapter08])
+  (:use [little-schemer.chapter01])
+  (:use [little-schemer.chapter05]))
 
 ; 8. Lambda the Ultimate
 

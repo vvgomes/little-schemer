@@ -1,5 +1,5 @@
 (ns little-schemer.chapter04
-  (:use [little-schemer.chapter03]))
+  (:use [little-schemer.chapter01]))
 
 ; 4. Numbers Games
 

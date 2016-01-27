@@ -1,5 +1,5 @@
 (ns little-schemer.chapter03
-  (:use [little-schemer.chapter02]))
+  (:use [little-schemer.chapter01]))
 
 ; 3. Cons the Magnificent
 

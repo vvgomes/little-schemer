@@ -1,5 +1,7 @@
 (ns little-schemer.chapter08
-  (:use [little-schemer.chapter07]))
+  (:use [little-schemer.chapter01])
+  (:use [little-schemer.chapter03])
+  (:use [little-schemer.chapter05]))
 
 ; 8. Lambda the Ultimate
 
