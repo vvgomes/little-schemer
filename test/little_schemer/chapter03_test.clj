@@ -1,6 +1,4 @@
-(ns little-schemer.chapter03-test
-  (:use midje.sweet)
-  (:use [little-schemer.chapter03]))
+(in-ns 'little-schemer.core-test)
 
 ; 3. Cons the Magnificent
 

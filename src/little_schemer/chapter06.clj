@@ -1,6 +1,4 @@
-(ns little-schemer.chapter06
-  (:use [little-schemer.chapter01])
-  (:use [little-schemer.chapter02]))
+(in-ns 'little-schemer.core)
 
 ; 6. Shadows
 

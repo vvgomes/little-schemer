@@ -1,8 +1,4 @@
-(ns little-schemer.chapter07
-  (:use [little-schemer.chapter01])
-  (:use [little-schemer.chapter02])
-  (:use [little-schemer.chapter03])
-  (:use [little-schemer.chapter05]))
+(in-ns 'little-schemer.core)
 
 ; 7. Friends and Relations
 

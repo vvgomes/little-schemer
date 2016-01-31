@@ -1,7 +1,4 @@
-(ns little-schemer.chapter08
-  (:use [little-schemer.chapter01])
-  (:use [little-schemer.chapter03])
-  (:use [little-schemer.chapter05]))
+(in-ns 'little-schemer.core)
 
 ; 8. Lambda the Ultimate
 
@@ -67,4 +64,17 @@
           (null? l) l
           (test? (car l) o) (s o n (cdr l))
           :else (cons (car l) (((insertg s) test?) n o (cdr l))))))))
+
+(def atom-to-function
+  (fn [a]
+    (cond (eq? a '+) + :else *)))
+
+(def value
+  (fn [exp]
+    (cond
+      (atom? exp) exp
+      :else 
+        ((atom-to-function (car exp))
+           (value (first-sub-exp exp))
+           (value (second-sub-exp exp))))))
 

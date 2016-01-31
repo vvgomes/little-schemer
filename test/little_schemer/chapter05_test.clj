@@ -1,6 +1,4 @@
-(ns little-schemer.chapter05-test
-  (:use midje.sweet)
-  (:use [little-schemer.chapter05]))
+(in-ns 'little-schemer.core-test)
 
 ; 5. Oh My Gawd: It's Full of Stars
 

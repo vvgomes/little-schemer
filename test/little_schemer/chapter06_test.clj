@@ -1,6 +1,4 @@
-(ns little-schemer.chapter06-test
-  (:use midje.sweet)
-  (:use [little-schemer.chapter06]))
+(in-ns 'little-schemer.core-test)
 
 ; 6. Shadows
 

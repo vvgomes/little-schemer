@@ -1,6 +1,4 @@
-(ns little-schemer.chapter04-test
-  (:use midje.sweet)
-  (:use [little-schemer.chapter04]))
+(in-ns 'little-schemer.core-test)
 
 ; 4. Numbers Games
 

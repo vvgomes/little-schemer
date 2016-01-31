@@ -1,4 +1,4 @@
-(ns little-schemer.chapter01)
+(in-ns 'little-schemer.core)
 
 ; 1. Toys
 

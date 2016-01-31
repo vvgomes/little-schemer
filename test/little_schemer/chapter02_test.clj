@@ -1,6 +1,4 @@
-(ns little-schemer.chapter02-test
-  (:use midje.sweet)
-  (:use [little-schemer.chapter02]))
+(in-ns 'little-schemer.core-test)
 
 ; 2. Do it, Do It Again, an Again, and Again...
 

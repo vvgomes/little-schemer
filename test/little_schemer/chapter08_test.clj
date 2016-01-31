@@ -1,8 +1,4 @@
-(ns little-schemer.chapter08-test
-  (:use midje.sweet)
-  (:use [little-schemer.chapter08])
-  (:use [little-schemer.chapter01])
-  (:use [little-schemer.chapter05]))
+(in-ns 'little-schemer.core-test)
 
 ; 8. Lambda the Ultimate
 
@@ -47,4 +43,9 @@
   (((insertg seqL) eq?) 'n 'o '(x o y o)) => '(x n o y o)
   (((insertg seqR) eq?) 'n 'o '(x o y o)) => '(x o n y o)
   (((insertg seqS) eq?) 'n 'o '(x o y o)) => '(x n y o))
+
+(facts "about value"
+  (value 13) => 13
+  (value '(+ 1 3)) => 4
+  (value '(+ 1 (* 3 4))) => 13)
 

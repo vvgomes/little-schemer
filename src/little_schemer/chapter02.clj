@@ -1,5 +1,4 @@
-(ns little-schemer.chapter02
-  (:use [little-schemer.chapter01]))
+(in-ns 'little-schemer.core)
 
 ; 2. Do it, Do It Again, an Again, and Again...
 

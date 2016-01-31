@@ -1,6 +1,4 @@
-(ns little-schemer.chapter07-test
-  (:use midje.sweet)
-  (:use [little-schemer.chapter07]))
+(in-ns 'little-schemer.core-test)
 
 ; 7. Friends and Relations
 

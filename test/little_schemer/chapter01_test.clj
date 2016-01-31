@@ -1,6 +1,4 @@
-(ns little-schemer.chapter01-test
-  (:use midje.sweet)
-  (:use [little-schemer.chapter01]))
+(in-ns 'little-schemer.core-test)
 
 ; 1. Toys
 

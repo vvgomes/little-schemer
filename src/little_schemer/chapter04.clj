@@ -1,5 +1,4 @@
-(ns little-schemer.chapter04
-  (:use [little-schemer.chapter01]))
+(in-ns 'little-schemer.core)
 
 ; 4. Numbers Games
 
