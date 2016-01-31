@@ -49,3 +49,6 @@
   (value '(+ 1 3)) => 4
   (value '(+ 1 (* 3 4))) => 13)
 
+(facts "about multiremberf"
+  ((multiremberf eq?) 'tuna '(shrimp salad tuna salad and tuna)) => '(shrimp salad salad and))
+

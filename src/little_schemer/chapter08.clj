@@ -78,3 +78,11 @@
            (value (first-sub-exp exp))
            (value (second-sub-exp exp))))))
 
+(def multiremberf
+  (fn [test?]
+    (fn [e l]
+      (cond
+        (null? l) l
+        (test? (car l) e) ((multiremberf test?) e (cdr l))
+        :else (cons (car l) ((multiremberf test?) e (cdr l)))))))
+
