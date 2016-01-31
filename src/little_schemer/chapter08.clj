@@ -74,7 +74,7 @@
     (cond
       (atom? exp) exp
       :else 
-        ((atom-to-function (car exp))
+        ((atom-to-function (operator exp))
            (value (first-sub-exp exp))
            (value (second-sub-exp exp))))))
 
