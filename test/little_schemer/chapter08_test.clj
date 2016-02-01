@@ -55,3 +55,6 @@
 (facts "about multirembereq"
   (multirembereq 'tuna '(shrimp salad tuna salad and tuna)) => '(shrimp salad salad and))
 
+(facts "about multiremberT"
+  (multiremberT eq?tuna '(shrimp salad tuna salad and tuna)) => '(shrimp salad salad and))
+

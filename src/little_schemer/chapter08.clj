@@ -88,3 +88,12 @@
 
 (def multirembereq (multiremberf eq?))
 
+(def eq?tuna (eq?c 'tuna))
+
+(def multiremberT
+  (fn [test? l]
+    (cond
+      (null? l) l
+      (test? (car l)) (multiremberT test? (cdr l))
+      :else (cons (car l) (multiremberT test? (cdr l))))))
+
