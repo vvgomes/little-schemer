@@ -86,3 +86,5 @@
         (test? (car l) e) ((multiremberf test?) e (cdr l))
         :else (cons (car l) ((multiremberf test?) e (cdr l)))))))
 
+(def multirembereq (multiremberf eq?))
+
