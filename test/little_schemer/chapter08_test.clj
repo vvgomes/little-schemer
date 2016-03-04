@@ -58,3 +58,16 @@
 (facts "about multiremberT"
   (multiremberT eq?tuna '(shrimp salad tuna salad and tuna)) => '(shrimp salad salad and))
 
+(facts "about multirember&co"
+  (multirember&co 'tuna '() (fn [x y] (null? y))) => true
+  (multirember&co 'tuna '(tuna) (fn [x y] (null? y))) => false
+  (multirember&co 'tuna '(and tuna) (fn [x y] (null? y))) => false
+  (multirember&co 'tuna '(strawberry tuna and swordfish) (fn [x y] (length x))) => 3)
+
+(facts "about multiinsertLR"
+  (multiinsertLR 'n 'x 'y '()) => '()
+  (multiinsertLR 'n 'x 'y '(x)) => '(n x)
+  (multiinsertLR 'n 'x 'y '(y)) => '(y n)
+  (multiinsertLR 'n 'x 'y '(x y)) => '(n x y n)
+  (multiinsertLR 'n 'x 'y '(z w)) => '(z w))
+

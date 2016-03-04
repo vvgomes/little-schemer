@@ -97,3 +97,26 @@
       (test? (car l)) (multiremberT test? (cdr l))
       :else (cons (car l) (multiremberT test? (cdr l))))))
 
+(def multirember&co
+  (fn [a lat col]
+    (cond
+      (null? lat)
+        (col '() '())
+      (eq? (car lat) a)
+        (multirember&co a (cdr lat)
+          (fn [newlat seen] (col newlat (cons (car lat) seen))))
+      :else
+        (multirember&co a (cdr lat)
+          (fn [newlat seen] (col (cons (car lat) newlat) seen))))))
+
+(def multiinsertLR
+  (fn [n oL oR lat]
+    (cond
+      (null? lat) lat
+      (eq? (car lat) oL)
+        (cons n (cons oL (multiinsertLR n oL oR (cdr lat))))
+      (eq? (car lat) oR)
+        (cons oR (cons n (multiinsertLR n oL oR (cdr lat))))
+      :else
+        (cons (car lat) (multiinsertLR n oL oR (cdr lat))))))
+
