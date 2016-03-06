@@ -71,3 +71,17 @@
   (multiinsertLR 'n 'x 'y '(x y)) => '(n x y n)
   (multiinsertLR 'n 'x 'y '(z w)) => '(z w))
 
+(facts "about multiinsertLR&co"
+  (multiinsertLR&co 'salty 'fish 'chips
+    '(chips and fish or fish and chips)
+    (fn [newlat L R] newlat))
+    => '(chips salty and salty fish or salty fish and chips salty)
+
+  (multiinsertLR&co 'salty 'fish 'chips
+    '(chips and fish or fish and chips)
+    (fn [newlat L R] L)) => 2
+
+  (multiinsertLR&co 'salty 'fish 'chips
+    '(chips and fish or fish and chips)
+    (fn [newlat L R] R)) => 2)
+

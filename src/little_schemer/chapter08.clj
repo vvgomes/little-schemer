@@ -120,3 +120,21 @@
       :else
         (cons (car lat) (multiinsertLR n oL oR (cdr lat))))))
 
+(def multiinsertLR&co
+  (fn [n oL oR lat co]
+    (cond
+      (null? lat)
+        (co '() 0 0)
+      (eq? (car lat) oL)
+        (multiinsertLR&co n oL oR (cdr lat)
+          (fn [newlat L R]
+            (co (cons n (cons oL newlat)) (add1 L) R)))
+      (eq? (car lat) oR)
+        (multiinsertLR&co n oL oR (cdr lat)
+          (fn [newlat L R]
+            (co (cons oR (cons n newlat)) L (add1 R))))
+      :else
+        (multiinsertLR&co n oL oR (cdr lat)
+          (fn [newlat L R]
+            (co (cons (car lat) newlat) L R))))))
+
