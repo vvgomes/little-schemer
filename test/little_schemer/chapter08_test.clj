@@ -88,3 +88,10 @@
 (facts "about evensonly*"
   (evensonly* '((9 1 2 8) 3 10 ((9 9) 7 6) 2)) => '((2 8) 10 (() 6) 2))
 
+(facts "about evensonly*&co"
+  (evensonly*&co '((9 1 2 8) 3 10 ((9 9) 7 6) 2)
+    (fn [evens odds] (reduce + (flatten odds)))) => 38
+
+  (evensonly*&co '((9 1 2 8) 3 10 ((9 9) 7 6) 2)
+    (fn [evens odds] (reduce * (flatten evens)))) => 1920)
+

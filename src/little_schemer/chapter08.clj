@@ -149,3 +149,25 @@
       :else
         (cons (evensonly* (car l)) (evensonly* (cdr l))))))
 
+(def evensonly*&co
+  (fn [l co]
+    (cond
+      (null? l)
+        (co '() '())
+      (atom? (car l))
+        (cond
+          (even? (car l))
+            (evensonly*&co (cdr l)
+              (fn [evens odds]
+                (co (cons (car l) evens) odds)))
+          :else
+            (evensonly*&co (cdr l)
+              (fn [evens odds]
+                (co evens (cons (car l) odds)))))
+      :else
+        (evensonly*&co (car l)
+          (fn [evens odds]
+            (evensonly*&co (cdr l) 
+              (fn [moreevens moreodds]
+                (co (cons evens moreevens) (cons odds moreodds)))))))))
+
