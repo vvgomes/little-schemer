@@ -138,3 +138,14 @@
           (fn [newlat L R]
             (co (cons (car lat) newlat) L R))))))
 
+(def evensonly*
+  (fn [l]
+    (cond
+      (null? l) l
+      (atom? (car l))
+        (cond
+          (even? (car l)) (cons (car l) (evensonly* (cdr l)))
+          :else (evensonly* (cdr l)))
+      :else
+        (cons (evensonly* (car l)) (evensonly* (cdr l))))))
+
