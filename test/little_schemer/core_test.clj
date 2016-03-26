@@ -10,4 +10,5 @@
 (load "chapter06_test")
 (load "chapter07_test")
 (load "chapter08_test")
+(load "chapter09_test")
 

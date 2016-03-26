@@ -8,4 +8,5 @@
 (load "chapter06")
 (load "chapter07")
 (load "chapter08")
+(load "chapter09")
 
