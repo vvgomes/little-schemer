@@ -12,4 +12,4 @@
 
 (def shift
   (fn [l]
-    (build (first (first l)) (cons (second (first l)) (cdr l)))))
+    (build (first (first l)) (build (second (first l)) (second l)))))

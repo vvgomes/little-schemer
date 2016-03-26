@@ -20,7 +20,6 @@
   (keep-looking 'caviar 4 '(6 2 4 tuna 5 7 3)) => false)
 
 (facts "about shift"
-  (shift '((a b))) => '(a (b))
   (shift '((a b) c)) => '(a (b c))
   (shift '((a b) (c d))) => '(a (b (c d))))
 
