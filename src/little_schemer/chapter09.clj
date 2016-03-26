@@ -5,8 +5,8 @@
 (def keep-looking
   (fn [a sorn lat]
     (cond
-      (number? (pick sorn lat))
+      (number? sorn)
         (keep-looking a (pick sorn lat) lat)
       :else
-        (eq? (pick sorn lat) a))))
+        (eq? sorn a))))
 
