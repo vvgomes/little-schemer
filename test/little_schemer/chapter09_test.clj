@@ -23,3 +23,23 @@
   (shift '((a b) c)) => '(a (b c))
   (shift '((a b) (c d))) => '(a (b (c d))))
 
+(facts "about length"
+  (length '()) => 0
+  (length '(a)) => 1
+  (length '(a b)) => 2)
+
+(facts "about length-0"
+  (length-0 '()) => 0
+  (length-0 '(a)) => (throws RuntimeException))
+
+(facts "about length-1"
+  (length-1 '()) => 0
+  (length-1 '(a)) => 1
+  (length-1 '(a b)) => (throws RuntimeException))
+
+(facts "about length-2"
+  (length-2 '()) => 0
+  (length-2 '(a)) => 1
+  (length-2 '(a b)) => 2
+  (length-2 '(a b c)) => (throws RuntimeException))
+
