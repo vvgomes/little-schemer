@@ -26,7 +26,9 @@
 (facts "about length"
   (length '()) => 0
   (length '(a)) => 1
-  (length '(a b)) => 2)
+  (length '(a b)) => 2
+  (length '(a b c)) => 3
+  (length '(a b c d)) => 4)
 
 (facts "about length-0"
   (length-0 '()) => 0
